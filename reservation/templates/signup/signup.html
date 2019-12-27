@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Signup</title>
+</head>
+
+<body>
+    <h1>Signup Page</h1>
+
+    <form action="{%url 'signup' %}" method="POST">
+
+        {% csrf_token %}
+
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="username" required><br><br>
+        <label for="fname">Firstname</label>
+        <input type="text" name="first_name" id="fname" placeholder="Firstname"><br><br>
+        <label for="lname">Lastname</label>
+        <input type="text" name="last_name" id="lname" placeholder="Lastname"><br><br>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="password" required><br><br>
+        <label for="re_password">Password Again</label>
+        <input type="password" name="re_password" id="re_password" placeholder="password again" required><br><br>
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="email" required><br><br>
+        <input type="submit" value="Sign Up">
+    </form>
+
+
+    {% for message in messages %}
+    <h2>{{ message }}</h2>
+    {% endfor %}
+
+
+    <h2><a href="{% url 'index' %}">Home</a></h2>
+
+</body>
+
+</html>
